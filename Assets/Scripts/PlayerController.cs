@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     // Config params
+    [Header("Player")]
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] int padding = 1;
-    [SerializeField] GameObject greenLaserPrefab;
+    [SerializeField] int health = 200;
+
+    [Header("Projectile")]
+    [SerializeField] public GameObject greenLaserPrefab;
     [SerializeField] float laserSpeed = 20f;
     [SerializeField] float projectileFiringPeriod = 1f;
 
@@ -54,6 +56,24 @@ public class PlayerController : MonoBehaviour
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, laserSpeed);
             yield return new WaitForSeconds(projectileFiringPeriod);
         }
+    }
+
+    private void RegisterDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        DamageDealerController damageDealerController = collision.gameObject.GetComponent<DamageDealerController>();
+        if (!damageDealerController) { return; }
+        RegisterDamage(damageDealerController.GetDamage());
+        // Destroy the laser
+        damageDealerController.Hit();
     }
 
     private void Move()
