@@ -157,3 +157,10 @@ MonoBehaviour:
   laserSpeed: 10
   redLaserPrefab: {fileID: 7621658419502037154, guid: ac5e7bf5b590746a9a71ab7bb46ce8d9,
     type: 3}
+  explosionParticles: {fileID: 6834391100827250562, guid: 6685ad348dbb24eb5adb6562efb179c5,
+    type: 3}
+  explosionDuration: 1
+  enemyDestroyedSFX: {fileID: 8300000, guid: 30263fae77e484837ae300a7de2b62cc, type: 3}
+  enemyFireSFX: {fileID: 8300000, guid: f04d92a7a95934b51b812dbc4f9b768b, type: 3}
+  enemyDestroyedSFXVolume: 1
+  enemyFireSFXVolume: 0.52

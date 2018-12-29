@@ -14,6 +14,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] float laserSpeed = 10f;
     [SerializeField] public GameObject redLaserPrefab;
+    [SerializeField] public GameObject explosionParticles;
+    [SerializeField] public float explosionDuration = 1f;
+
+    [Header("Sound FX")]
+    [SerializeField] AudioClip enemyDestroyedSFX;
+    [SerializeField] AudioClip enemyFireSFX;
+    [SerializeField] [Range(0, 1)] float enemyDestroyedSFXVolume = 1f;
+    [SerializeField] [Range(0, 1)] float enemyFireSFXVolume = 1f;
 
     void Start()
     {
@@ -41,6 +49,7 @@ public class EnemyController : MonoBehaviour
 
     private void Fire()
     {
+        AudioSource.PlayClipAtPoint(enemyFireSFX, Camera.main.transform.position, enemyFireSFXVolume);
         GameObject laser = Instantiate(
                 redLaserPrefab,
                 transform.position,
@@ -54,8 +63,16 @@ public class EnemyController : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            DestroyEnemy();
         }
+    }
+
+    private void DestroyEnemy()
+    {
+        GameObject destroyExplosion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        Destroy(destroyExplosion, explosionDuration);
+        AudioSource.PlayClipAtPoint(enemyDestroyedSFX, Camera.main.transform.position, enemyDestroyedSFXVolume);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float laserSpeed = 20f;
     [SerializeField] float projectileFiringPeriod = 1f;
 
+    [Header("Sound FX")]
+    [SerializeField] AudioClip playerDestroyedSFX;
+    [SerializeField] AudioClip playerFireSFX;
+    [SerializeField] [Range(0, 1)] float playerDestroyedSFXVolume = 1f;
+    [SerializeField] [Range(0, 1)] float playerFireSFXVolume = 0.25f;
+
     Coroutine firingCoroutine;
 
     float xMin;
@@ -49,6 +55,7 @@ public class PlayerController : MonoBehaviour
     {
         while(true) {
             // Kick off an endless firing loop within the coroutine until it is cancelled on keyup
+            AudioSource.PlayClipAtPoint(playerFireSFX, Camera.main.transform.position, playerFireSFXVolume);
             GameObject laser = Instantiate(
                 greenLaserPrefab,
                 transform.position,
@@ -63,8 +70,14 @@ public class PlayerController : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            DestroyPlayer();
         }
+    }
+
+    private void DestroyPlayer()
+    {
+        AudioSource.PlayClipAtPoint(playerDestroyedSFX, Camera.main.transform.position, playerDestroyedSFXVolume);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
