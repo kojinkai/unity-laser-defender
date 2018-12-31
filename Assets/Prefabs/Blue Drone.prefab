@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8649447557442453303}
   - component: {fileID: 8170029104833279083}
   - component: {fileID: 272112417070844059}
+  - component: {fileID: 3126177750278938475}
+  - component: {fileID: 9204175048589908622}
   m_Layer: 9
   m_Name: Blue Drone
   m_TagString: Untagged
@@ -161,6 +163,40 @@ MonoBehaviour:
     type: 3}
   explosionDuration: 1
   enemyDestroyedSFX: {fileID: 8300000, guid: 30263fae77e484837ae300a7de2b62cc, type: 3}
-  enemyFireSFX: {fileID: 8300000, guid: f04d92a7a95934b51b812dbc4f9b768b, type: 3}
+  enemyFireSFX: {fileID: 8300000, guid: e651d645bc2c34ff2ae793a39db9b8d8, type: 3}
   enemyDestroyedSFXVolume: 1
   enemyFireSFXVolume: 0.52
+--- !u!50 &3126177750278938475
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6795984598723228499}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &9204175048589908622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6795984598723228499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2da2566951f46a086ce50d93bfc396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 150

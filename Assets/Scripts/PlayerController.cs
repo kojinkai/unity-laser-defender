@@ -15,8 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float projectileFiringPeriod = 1f;
 
     [Header("Sound FX")]
-    [SerializeField] AudioClip playerDestroyedSFX;
-    [SerializeField] AudioClip playerFireSFX;
+    [SerializeField] public AudioClip playerDestroyedSFX;
+    [SerializeField] public AudioClip playerFireSFX;
     [SerializeField] [Range(0, 1)] float playerDestroyedSFXVolume = 1f;
     [SerializeField] [Range(0, 1)] float playerFireSFXVolume = 0.25f;
 
@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
 
     private void DestroyPlayer()
     {
+        FindObjectOfType<LevelController>().LoadGameOver();
         AudioSource.PlayClipAtPoint(playerDestroyedSFX, Camera.main.transform.position, playerDestroyedSFXVolume);
         Destroy(gameObject);
     }
