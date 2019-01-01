@@ -153,6 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 200
+  pointsValue: 50
+  gameController: {fileID: 7157852620266405974, guid: 6ce510ecedcfe41a2bfeca44fa895fe7,
+    type: 3}
   shotCounter: 0
   minTimeBetweenShots: 0.3
   maxTimeBetweenShots: 1.5

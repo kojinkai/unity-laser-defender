@@ -4,6 +4,7 @@ public class EnemyController : MonoBehaviour
 {
     [Header("Enemy")]
     [SerializeField] float health = 100;
+    [SerializeField] public int scoreValue = 50;
 
     [Header("Attack Params")]
     [SerializeField] float shotCounter;
@@ -15,8 +16,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] public float explosionDuration = 1f;
 
     [Header("Sound FX")]
-    [SerializeField] AudioClip enemyDestroyedSFX;
-    [SerializeField] AudioClip enemyFireSFX;
+    [SerializeField] public AudioClip enemyDestroyedSFX;
+    [SerializeField] public AudioClip enemyFireSFX;
     [SerializeField] [Range(0, 1)] float enemyDestroyedSFXVolume = 1f;
     [SerializeField] [Range(0, 1)] float enemyFireSFXVolume = 1f;
 
@@ -70,6 +71,7 @@ public class EnemyController : MonoBehaviour
         Destroy(gameObject);
         Destroy(destroyExplosion, explosionDuration);
         AudioSource.PlayClipAtPoint(enemyDestroyedSFX, Camera.main.transform.position, enemyDestroyedSFXVolume);
+        FindObjectOfType<GameController>().AddToScore(scoreValue);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
