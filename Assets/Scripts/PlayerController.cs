@@ -67,7 +67,8 @@ public class PlayerController : MonoBehaviour
 
     private void RegisterDamage(int damage)
     {
-        health -= damage;
+        health = Mathf.Clamp(health - damage, 0, health);
+
         if (health <= 0)
         {
             DestroyPlayer();
@@ -107,5 +108,10 @@ public class PlayerController : MonoBehaviour
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
 
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }

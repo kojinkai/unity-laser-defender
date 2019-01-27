@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4106314884995917820}
   - component: {fileID: 5414208663042017976}
   - component: {fileID: 3177792872319888149}
-  - component: {fileID: 6496808780073231747}
   - component: {fileID: 4114481528243897384}
   - component: {fileID: 832782756722744973}
+  - component: {fileID: 6826464064376990284}
   m_Layer: 9
   m_Name: Brown Drone
   m_TagString: Untagged
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a4bbf8a43ef2340e48b4d557e095ecb4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d3a1551f024b4b11aafed422c819b58, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -109,8 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
-  gameController: {fileID: 7157852620266405974, guid: 6ce510ecedcfe41a2bfeca44fa895fe7,
-    type: 3}
+  scoreValue: 50
   shotCounter: 0
   minTimeBetweenShots: 0.3
   maxTimeBetweenShots: 2
@@ -124,43 +123,6 @@ MonoBehaviour:
   enemyFireSFX: {fileID: 8300000, guid: c9367dc8b679c47d3bbc2b25ad48d060, type: 3}
   enemyDestroyedSFXVolume: 1
   enemyFireSFXVolume: 0.58
---- !u!60 &6496808780073231747
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4106314884995917827}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.93, y: 0.84}
-    newSize: {x: 0.93, y: 0.84}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.08935678, y: -0.3691001}
-      - {x: -0.15155277, y: -0.16856721}
-      - {x: 0.14382833, y: -0.16750874}
-      - {x: 0.0948342, y: -0.369549}
-      - {x: 0.2552056, y: -0.4256555}
-      - {x: 0.47631106, y: 0.16475566}
-      - {x: 0.31177688, y: 0.41609}
-      - {x: -0.21499999, y: 0.42}
-      - {x: -0.30106673, y: 0.42}
-      - {x: -0.47631106, y: 0.15724972}
-      - {x: -0.26237783, y: -0.43413886}
-      - {x: -0.16499999, y: -0.40020555}
 --- !u!50 &4114481528243897384
 Rigidbody2D:
   serializedVersion: 4
@@ -195,3 +157,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 200
+--- !u!60 &6826464064376990284
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106314884995917827}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.95, y: 0.95}
+    newSize: {x: 0.93, y: 0.84}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.4672495, y: -0.12476161}
+      - {x: 0.36128867, y: 0.16984554}
+      - {x: 0.2657498, y: 0.31907687}
+      - {x: 0.2394423, y: 0.32203844}
+      - {x: 0.1768463, y: 0.26907688}
+      - {x: -0.18019216, y: 0.2657498}
+      - {x: -0.24499999, y: 0.325}
+      - {x: -0.265, y: 0.325}
+      - {x: -0.36686516, y: 0.14536545}
+      - {x: -0.46569586, y: -0.12614551}
+      - {x: -0.46463457, y: -0.24871139}
+      - {x: -0.19871138, y: -0.4661153}
+      - {x: -0.117230594, y: -0.4379804}
+      - {x: 0.10015446, y: -0.43907684}
+      - {x: 0.18798041, y: -0.47055763}
+      - {x: 0.4646344, y: -0.25723073}

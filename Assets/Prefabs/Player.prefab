@@ -99,9 +99,9 @@ MonoBehaviour:
   greenLaserPrefab: {fileID: 7122632023394714871, guid: 03eb418a7bfce4affa47d6bf23aabed8,
     type: 3}
   laserSpeed: 20
-  projectileFiringPeriod: 0.05
+  projectileFiringPeriod: 0.04
   playerDestroyedSFX: {fileID: 8300000, guid: 30263fae77e484837ae300a7de2b62cc, type: 3}
-  playerFireSFX: {fileID: 8300000, guid: c8f757f8c423f482b890aeacf0b59340, type: 3}
+  playerFireSFX: {fileID: 8300000, guid: f0c1259006d604f3882a9164c5ee676b, type: 3}
   playerDestroyedSFXVolume: 0.78
   playerFireSFXVolume: 0.26
 --- !u!58 &1570853026318499229
