@@ -30,14 +30,7 @@ public class LevelController : MonoBehaviour
     {
         // We use an animation event to trigger ShowGameOverScreen when this animation finishes
         animator.SetTrigger("FadeOut");
-        //StartCoroutine(ShowGameOverScreen());
     }
-
-    //private IEnumerator ShowGameOverScreen()
-    //{
-    //    yield return new WaitForSeconds(gameOverDelay);
-    //    SceneManager.LoadScene("Game Over");
-    //}
 
     public void ShowGameOverScreen()
     {
